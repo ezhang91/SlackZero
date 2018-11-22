@@ -27,7 +27,7 @@ print (resp1)
 
 def verify_email(request):
 	return HttpResponse(json.dumps({
-		'text': 'ethan is a big butt',
+		'text': 'ethan is NOT a big butt',
 	}))
 
 

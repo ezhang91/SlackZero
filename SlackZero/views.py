@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-#import json
+import json
 import requests
 # from zerobounce import ZeroBounceAPI
 

@@ -12,7 +12,7 @@ import requests
 
 url = "https://api.zerobounce.net/v2/validate"
 api_key = "3d728439c77f43e1b41a9dabc446fd3c"
-email = "example@example.com"
+email = "ethan@clearbanc.com"
 ip_address = "99.123.12.122" #ip_address can be blank
 params = {"email": email, "api_key": api_key, "ip_address": ip_address}
 response = requests.get(url, params=params)

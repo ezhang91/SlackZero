@@ -6,7 +6,7 @@ import os
 import json
 import requests
 
-def input_value(request):
+def verify_email(request):
     url = "https://sheltered-sands-95126.herokuapp.com/SlackZero/verify-email"
     params = {"user_id": user_id, "text": text}
     response = requests.get(url, params=params)

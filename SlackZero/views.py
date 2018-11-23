@@ -6,6 +6,13 @@ import os
 import json
 import requests
 
+def input_value(request):
+    url = "https://sheltered-sands-95126.herokuapp.com/SlackZero/verify-email"
+    params = {"user_id": user_id, "text": text}
+    response = requests.get(url, params=params)
+    data = response.json()
+    return HttpResponse(data["text"])
+
 # url = "https://api.zerobounce.net/v2/validate"
 # api_key = "3d728439c77f43e1b41a9dabc446fd3c"
 # email = "ethanasfasdfsa@clearbanc.com"
@@ -20,20 +27,21 @@ import requests
 
 # Print the returned json
 #print (resp1)
-slack_client = SlackClient(os.environ.get("xoxb-4545660241-486093960406-htIW5JtsT152dcEEhHTKq9TF"))
-starterbot_id = None
-starterbot_id = slack_client.api_call("auth.test")["user_id"]
+# slack_client = SlackClient(os.environ.get("xoxb-4545660241-486093960406-htIW5JtsT152dcEEhHTKq9TF"))
+# starterbot_id = None
+# starterbot_id = slack_client.api_call("auth.test")["user_id"]
 thread = None
 
-def verify_email(request):
-    # global thread
-    # thread = threading.Thread(target=talk_to_zerobounce, pass response_url somehow)
-    # thread.start()
-	return HttpResponse(json.dumps(
-    {
-    "response_type": "in_channel",
-    "text": starterbot_id,
-    }))
+# def verify_email(request):
+#     # global thread
+#     # thread = threading.Thread(target=talk_to_zerobounce, pass response_url somehow)
+#     # thread.start()
+#     input_value()
+#     return HttpResponse(json.dumps(
+#     {
+#     "response_type": "in_channel",
+#     "text": data["text"],
+#     }))
 
 # def talk_to_zerobounce():
 #     send a response

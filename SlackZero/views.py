@@ -20,7 +20,7 @@ import requests
 
 # Print the returned json
 #print (resp1)
-slack_client = SlackClient(os.environ.get(xoxb-4545660241-486093960406-htIW5JtsT152dcEEhHTKq9TF))
+slack_client = SlackClient(os.environ.get('xoxb-4545660241-486093960406-htIW5JtsT152dcEEhHTKq9TF'))
 starterbot_id = slack_client.api_call("auth.test")["user_id"]
 thread = None
 

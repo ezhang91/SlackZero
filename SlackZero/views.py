@@ -8,7 +8,7 @@ import requests
 
 def verify_email(request):
     url = "https://sheltered-sands-95126.herokuapp.com/SlackZero/verify-email"
-    params = {"user_id": user_id, "text": text}
+    params = {"text": text}
     response = requests.get(url, params=params)
     data = response.json()
     return HttpResponse(data["text"])

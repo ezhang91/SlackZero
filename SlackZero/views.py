@@ -7,8 +7,8 @@ import json
 import requests
 
 def verify_email(request):
-    print(dir(request))
-    print(request.POST)
+    #print(dir(request))
+    #print(request.POST)
     email = request.POST['text']
     url_ZB = "https://api.zerobounce.net/v2/validate"
     api_key = "3d728439c77f43e1b41a9dabc446fd3c"
@@ -30,7 +30,7 @@ def verify_email(request):
 # slack_client = SlackClient(os.environ.get("xoxb-4545660241-486093960406-htIW5JtsT152dcEEhHTKq9TF"))
 # starterbot_id = None
 # starterbot_id = slack_client.api_call("auth.test")["user_id"]
-thread = None
+#thread = None
 
 # def verify_email(request):
 #     # global thread

@@ -1,12 +1,19 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from slackclient import SlackClient
-import os
+#from slackclient import SlackClient
+#import os
 #from threading import Thread
 import json
 import requests
 
 def verify_email(request):
+    print('ethan is def a big butt')
+    print(request)
+    print(dir(request))
+    print(request.body)
+    print(request.POST)
+    print(request.POST['text'])
+    print('ethan is a big butt FOR SURE')
     url = "https://sheltered-sands-95126.herokuapp.com/SlackZero/verify-email"
     params = {"text": text}
     response = requests.get(url, params=params)

@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from slackclient import SlackClient
+import os
 #from threading import Thread
 import json
 import requests
@@ -19,7 +20,8 @@ import requests
 
 # Print the returned json
 #print (resp1)
-
+slack_client = SlackClient(os.environ.get(xoxb-4545660241-486093960406-htIW5JtsT152dcEEhHTKq9TF))
+starterbot_id = slack_client.api_call("auth.test")["user_id"]
 thread = None
 
 def verify_email(request):
@@ -29,12 +31,7 @@ def verify_email(request):
 	return HttpResponse(json.dumps(
     {
     "response_type": "in_channel",
-    "text": content,
-    "attachments": [
-        {
-            "text":"Partly cloudy today and tomorrow"
-        }
-    ]
+    "text": starterbot_id,
     }))
 
 # def talk_to_zerobounce():

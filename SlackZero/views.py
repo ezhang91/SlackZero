@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render
 #from slackclient import SlackClient
 #import os
@@ -20,9 +20,9 @@ def verify_email(request):
 
     url_server = "https://sheltered-sands-95126.herokuapp.com/SlackZero/verify-email"
     params_server = {"text": resp1, "response_type": "in_channel"}
-    requests.post(url_server, params=params_server)
+    #requests.post(url_server, params=params_server)
     # data = response.json()
-    return HttpResponse(resp1)
+    return JsonResponse(params_server)
 
 
 # Print the returned json

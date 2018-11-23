@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from slackclient import SlackClient
+#from threading import Thread
 import json
 import requests
 
@@ -28,7 +29,7 @@ def verify_email(request):
 	return HttpResponse(json.dumps(
     {
     "response_type": "in_channel",
-    "text": "It's 80 degrees right now.",
+    "text": content,
     "attachments": [
         {
             "text":"Partly cloudy today and tomorrow"
@@ -39,7 +40,29 @@ def verify_email(request):
 # def talk_to_zerobounce():
 #     send a response
 
-# print resp1
+# from threading import Thread
+#
+# def backgroundworker(somedata,response_url):
+#
+#     # your task
+#
+#     payload = {"text":"your task is complete",
+#                 "username": "bot"}
+#
+#     requests.post(response_url,data=json.dumps(payload))
+#
+# @app.route('/appmethodaddress',methods=['POST','GET'])
+# def receptionist():
+#
+#     response_url = request.form.get("response_url")
+#
+#     somedata = {}
+#
+#     thr = Thread(target=backgroundworker, args=[somedata,response_url])
+#     thr.start()
+#
+#     return jsonify(message= "working on your request")
+
 # {
 #  "address":email_to_verify,
 #  "status":"valid",

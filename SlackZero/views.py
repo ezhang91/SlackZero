@@ -3,33 +3,41 @@ from django.shortcuts import render
 
 import json
 import requests
-# from zerobounce import ZeroBounceAPI
 
-#zba = ZeroBounceAPI('3d728439c77f43e1b41a9dabc446fd3c')
-#print zba.get_credits()
-#email_to_verify ='disposable@example.com'
-#resp1 = zba.validate(email_to_verify,'99.110.204.1')
-
-url = "https://api.zerobounce.net/v2/validate"
-api_key = "3d728439c77f43e1b41a9dabc446fd3c"
-email = "ethanasfasdfsa@clearbanc.com"
-ip_address = "99.123.12.122" #ip_address can be blank
-params = {"email": email, "api_key": api_key, "ip_address": ip_address}
-response = requests.get(url, params=params)
-data = response.json()
-resp1 = data["status"]
+# url = "https://api.zerobounce.net/v2/validate"
+# api_key = "3d728439c77f43e1b41a9dabc446fd3c"
+# email = "ethanasfasdfsa@clearbanc.com"
+# ip_address = "99.123.12.122" #ip_address can be blank
+# params = {"email": email, "api_key": api_key, "ip_address": ip_address}
+# response = requests.get(url, params=params)
+# data = response.json()
+# resp1 = data["status"]
 
 #resp1 = json.loads(response.content)
 #resp1 = response.text
 
 # Print the returned json
-print (resp1)
+#print (resp1)
+
+thread = None
 
 def verify_email(request):
-	return HttpResponse(json.dumps({
-		'text': 'ethan is NOT a big butt',
-	}))
+    # global thread
+    # thread = threading.Thread(target=talk_to_zerobounce, pass response_url somehow)
+    # thread.start()
+	# return HttpResponse(json.dumps(
+    {
+    "response_type": "in_channel",
+    "text": "It's 80 degrees right now.",
+    "attachments": [
+        {
+            "text":"Partly cloudy today and tomorrow"
+        }
+    ]
+    }))
 
+# def talk_to_zerobounce():
+#     send a response
 
 # print resp1
 # {

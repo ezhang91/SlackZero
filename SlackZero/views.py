@@ -7,29 +7,23 @@ import json
 import requests
 
 def verify_email(request):
-    print(request)
     print(dir(request))
-    print(request.user)
     print(request.POST)
     email = request.POST['text']
-    url = "https://api.zerobounce.net/v2/validate"
+    url_ZB = "https://api.zerobounce.net/v2/validate"
     api_key = "3d728439c77f43e1b41a9dabc446fd3c"
     ip_address = "99.123.12.122" #ip_address can be blank
-    params = {"email": email, "api_key": api_key, "ip_address": ip_address}
-    response = requests.get(url, params=params)
+    params_ZB = {"email": email, "api_key": api_key, "ip_address": ip_address}
+    response = requests.get(url_ZB, params=params_ZB)
     data = response.json()
-    resp1 = data["status"]
-    # url = "https://sheltered-sands-95126.herokuapp.com/SlackZero/verify-email"
-    # params = {"text": input_email}
-    # response = requests.get(url, params=params)
+    resp1 = email + ' - ' + data["status"]
+
+    url_server = "https://sheltered-sands-95126.herokuapp.com/SlackZero/verify-email"
+    params_server = {"text": resp1, "response_type": "in_channel"}
+    requests.post(url_server, params=params_server)
     # data = response.json()
     return HttpResponse(resp1)
 
-
-
-
-#resp1 = json.loads(response.content)
-#resp1 = response.text
 
 # Print the returned json
 #print (resp1)

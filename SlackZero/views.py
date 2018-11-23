@@ -25,7 +25,7 @@ def verify_email(request):
     # global thread
     # thread = threading.Thread(target=talk_to_zerobounce, pass response_url somehow)
     # thread.start()
-	# return HttpResponse(json.dumps(
+	return HttpResponse(json.dumps(
     {
     "response_type": "in_channel",
     "text": "It's 80 degrees right now.",

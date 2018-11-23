@@ -7,27 +7,26 @@ import json
 import requests
 
 def verify_email(request):
-    print('ethan is def a big butt')
     print(request)
     print(dir(request))
-    print(request.body)
+    print(request.user)
     print(request.POST)
-    print(request.POST['text'])
-    print('ethan is a big butt FOR SURE')
-    url = "https://sheltered-sands-95126.herokuapp.com/SlackZero/verify-email"
-    params = {"text": text}
+    email = request.POST['text']
+    url = "https://api.zerobounce.net/v2/validate"
+    api_key = "3d728439c77f43e1b41a9dabc446fd3c"
+    ip_address = "99.123.12.122" #ip_address can be blank
+    params = {"email": email, "api_key": api_key, "ip_address": ip_address}
     response = requests.get(url, params=params)
     data = response.json()
-    return HttpResponse(data["text"])
+    resp1 = data["status"]
+    # url = "https://sheltered-sands-95126.herokuapp.com/SlackZero/verify-email"
+    # params = {"text": input_email}
+    # response = requests.get(url, params=params)
+    # data = response.json()
+    return HttpResponse(resp1)
 
-# url = "https://api.zerobounce.net/v2/validate"
-# api_key = "3d728439c77f43e1b41a9dabc446fd3c"
-# email = "ethanasfasdfsa@clearbanc.com"
-# ip_address = "99.123.12.122" #ip_address can be blank
-# params = {"email": email, "api_key": api_key, "ip_address": ip_address}
-# response = requests.get(url, params=params)
-# data = response.json()
-# resp1 = data["status"]
+
+
 
 #resp1 = json.loads(response.content)
 #resp1 = response.text
